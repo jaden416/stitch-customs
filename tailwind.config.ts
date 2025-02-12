@@ -8,6 +8,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        jetbrains: ["JetBrains Mono"],
+        jetbrainsbold: ["JetBrains Mono Bold"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
