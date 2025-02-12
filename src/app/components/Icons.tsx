@@ -29,7 +29,7 @@ export const Icons = {
     </motion.svg>
   ),
   email: (props: LucideProps) => (
-    <svg
+    <motion.svg
       {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -59,7 +59,7 @@ export const Icons = {
         strokeWidth="1.8"
         strokeLinecap="round"
       />
-    </svg>
+    </motion.svg>
   ),
   keyboard: (props: LucideProps) => (
     <motion.svg
