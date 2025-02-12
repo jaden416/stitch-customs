@@ -9,9 +9,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        jetbrains: ["JetBrains Mono"],
-        jetbrainsbold: ["JetBrains Mono Bold"],
+        mono: ["var(--font-jetbrains-mono)"],
       },
+
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
