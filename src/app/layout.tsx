@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
+import { AnimatedTabs } from "./components/tabs/tabs";
+
 const jetBrains = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
@@ -21,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${jetBrains.variable} font-mono antialiased`}>
         {children}
+        <AnimatedTabs />
       </body>
     </html>
   );
