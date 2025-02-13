@@ -2,7 +2,7 @@
 
 import { createContext, forwardRef, useContext } from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
-import { motion, MotionConfig } from "framer-motion";
+import { motion, MotionConfig } from "motion/react";
 
 const transition = {
   type: "spring",
