@@ -17,10 +17,10 @@ interface PopoverTriggerProps
   active: boolean;
 }
 
-const PopoverTrigger = ({ children, ref, ...props }: PopoverTriggerProps) => {
+const PopoverTrigger = ({ children, ref, active }: PopoverTriggerProps) => {
   return (
     <div className="relative">
-      {props.active && (
+      {active && (
         <motion.div
           layoutId="active-tab-bg"
           style={{ borderRadius: 8 }}
@@ -29,7 +29,6 @@ const PopoverTrigger = ({ children, ref, ...props }: PopoverTriggerProps) => {
       )}
       <RadixPopover.Trigger
         ref={ref}
-        {...props}
         className="z-100 relative flex h-[3.6rem] w-[3.6rem] cursor-pointer items-center justify-center"
       >
         {children}

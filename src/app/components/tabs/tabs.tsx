@@ -35,7 +35,7 @@ export function AnimatedTabs() {
                   key={index}
                   value={tab.value}
                   href={tab.value}
-                  popover={false}
+                  popover={popoverContent}
                 >
                   {tab.children}
                 </CustomLink>
