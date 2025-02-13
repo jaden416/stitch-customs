@@ -11,30 +11,32 @@ const transition = {
   mass: 1.2,
 };
 
-type TabsContextType = {
+// context start
+type NavContextType = {
   value: string;
 };
 
-const TabsContext = createContext<TabsContextType | undefined>(undefined);
+const NavContext = createContext<NavContextType | undefined>(undefined);
 
-type TabsProviderProps = {
+type NavProviderProps = {
   children: React.ReactNode;
   value: string;
 };
 
-function TabsProvider({ children, value }: TabsProviderProps) {
+function NavProvider({ children, value }: NavProviderProps) {
   return (
-    <TabsContext.Provider value={{ value }}>{children}</TabsContext.Provider>
+    <NavContext.Provider value={{ value }}>{children}</NavContext.Provider>
   );
 }
 
-function useTabs() {
-  const context = useContext(TabsContext);
+function useNav() {
+  const context = useContext(NavContext);
   if (!context) {
-    throw new Error("useTabs must be used within a TabsProvider");
+    throw new Error("useNav must be used within a NavProvider");
   }
   return context;
 }
+// context end
 
 interface TabsProps {
   value: string;
@@ -45,7 +47,7 @@ interface TabsProps {
 function Tabs({ value, onValueChange, children }: TabsProps) {
   return (
     <MotionConfig transition={transition}>
-      <TabsProvider value={value}>
+      <NavProvider value={value}>
         <TabsPrimitive.Root
           value={value}
           onValueChange={onValueChange}
@@ -53,7 +55,7 @@ function Tabs({ value, onValueChange, children }: TabsProps) {
         >
           {children}
         </TabsPrimitive.Root>
-      </TabsProvider>
+      </NavProvider>
     </MotionConfig>
   );
 }
@@ -74,7 +76,7 @@ const TabsTrigger = forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
 >(({ children, ...props }, ref) => {
-  const { value } = useTabs();
+  const { value } = useNav();
   const isActive = value === props.value;
 
   return (
@@ -98,16 +100,4 @@ const TabsTrigger = forwardRef<
 });
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
 
-const TabsContent = forwardRef<
-  React.ElementRef<typeof TabsPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
->(({ ...props }, ref) => (
-  <TabsPrimitive.Content
-    ref={ref}
-    className="focus-visible:ring-ring relative mt-2 rounded-xl border border-muted ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
-    {...props}
-  />
-));
-TabsContent.displayName = TabsPrimitive.Content.displayName;
-
-export { Tabs, TabsList, TabsTrigger, TabsContent };
+export { Tabs, TabsList, TabsTrigger };
