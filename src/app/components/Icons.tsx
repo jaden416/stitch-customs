@@ -30,6 +30,7 @@ export const Icons = {
   ),
   email: (props: LucideProps) => (
     <motion.svg
+      layout
       {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="24"

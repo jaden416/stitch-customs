@@ -19,7 +19,7 @@ interface PopoverTriggerProps
 
 const PopoverTrigger = ({ children, ref, active }: PopoverTriggerProps) => {
   return (
-    <div className="relative">
+    <motion.div className="relative">
       {active && (
         <motion.div
           layoutId="active-tab-bg"
@@ -28,12 +28,14 @@ const PopoverTrigger = ({ children, ref, active }: PopoverTriggerProps) => {
         />
       )}
       <RadixPopover.Trigger
+        style={{ pointerEvents: active ? "none" : "auto" }}
+        disabled={active}
         ref={ref}
         className="z-100 relative flex h-[3.6rem] w-[3.6rem] cursor-pointer items-center justify-center"
       >
         {children}
       </RadixPopover.Trigger>
-    </div>
+    </motion.div>
   );
 };
 
@@ -50,6 +52,10 @@ interface PopoverContentProps
 }
 
 const PopoverContent = ({ active }: PopoverContentProps) => {
+  const isActive = active;
+  const d = new Date();
+
+  console.log("state " + active, "var " + isActive + " " + d.getTime());
   const variants = {
     initial: { scale: 0.95, y: 40, opacity: 0 },
     animate: { scale: 1, y: 0, opacity: 1 },
@@ -63,7 +69,7 @@ const PopoverContent = ({ active }: PopoverContentProps) => {
 
   return (
     <AnimatePresence mode="wait">
-      {active && (
+      {isActive && (
         <RadixPopover.Content asChild forceMount sideOffset={10}>
           <motion.div
             variants={variants}

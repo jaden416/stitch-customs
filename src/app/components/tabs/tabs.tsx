@@ -2,7 +2,7 @@
 import React from "react";
 import { CustomLink } from "./animated-tabs";
 import { Icons } from "../Icons";
-import { MotionConfig } from "motion/react";
+import { MotionConfig, motion } from "motion/react";
 import {
   Popover,
   PopoverTrigger,
