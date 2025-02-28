@@ -2,7 +2,7 @@
 import React from "react";
 import { CustomLink } from "./animated-tabs";
 import { Icons } from "../Icons";
-import { MotionConfig, motion } from "motion/react";
+import { MotionConfig } from "motion/react";
 import {
   Popover,
   PopoverTrigger,
@@ -27,9 +27,9 @@ export function AnimatedTabs() {
   return (
     <nav className="fixed bottom-0 left-1/2 z-50 flex w-full -translate-x-1/2 justify-center pb-[2rem]">
       <Popover open={popoverContent} onOpenChange={handlePopoverContent}>
-        <PopoverAnchor className="relative z-30 flex items-center gap-1.5 rounded-[1.2rem] bg-darkgrey p-2 shadow-shado">
+        <PopoverAnchor className="bg-darkgrey shadow-shado relative z-30 flex items-center gap-1.5 rounded-[1.2rem] p-2">
           <MotionConfig transition={transition}>
-            <div className="inline-flex w-full items-center justify-start overflow-hidden rounded-2xl bg-neutral-100 p-2 dark:bg-neutral-800">
+            <div className="inline-flex w-full items-center justify-start overflow-hidden rounded-2xl bg-[#2f2e2ecb] p-2 backdrop-blur-sm">
               {tabs.map((tab, index) => (
                 <CustomLink
                   key={index}
