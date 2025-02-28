@@ -8,14 +8,13 @@
     /* filter: grayscale(60%); */
     -webkit-tap-highlight-color: transparent;
 
-    background-color: #0a0a0a;
+    background-color: rgb(9, 9, 9);
     font-family: "JetBrains Mono";
   }
 
   body {
     font-size: 1.6rem;
-    color: white;
-
+    color: #ffffffea;
     height: 100%;
     width: 100%;
   }
