@@ -53,9 +53,7 @@ interface PopoverContentProps
 
 const PopoverContent = ({ active }: PopoverContentProps) => {
   const isActive = active;
-  const d = new Date();
 
-  console.log("state " + active, "var " + isActive + " " + d.getTime());
   const variants = {
     initial: { scale: 0.95, y: 40, opacity: 0 },
     animate: { scale: 1, y: 0, opacity: 1 },

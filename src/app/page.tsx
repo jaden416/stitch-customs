@@ -1,4 +1,14 @@
+"use client";
 import Image from "next/image";
+import { VirtualizedPhoto } from "./components/carousel/virtualized-photo";
+
+const images = [
+  "https://unsplash.com/photos/1527pjeb6jg/download?force=true&w=640",
+  "https://unsplash.com/photos/9wg5jCEPBsw/download?force=true&w=640",
+  "https://unsplash.com/photos/9wg5jCEPBsw/download?force=true&w=640",
+];
+console.log(images.length);
+
 export default function Home() {
   return (
     <div className="relative my-24">
@@ -20,10 +30,10 @@ export default function Home() {
               <p className="">
                 Hey, my name is Joshua.{" "}
                 <span className="text-gray-500">
-                  I've always had a passion for technology and building
-                  keyboards is an extension of that passion. I started building
-                  keyboards around August of 2021 and have been really enjoying
-                  my time in the community!
+                  Ive always had a passion for technology and building keyboards
+                  is an extension of that passion. I started building keyboards
+                  around August of 2021 and have been really enjoying my time in
+                  the community!
                 </span>
               </p>
             </div>
@@ -73,6 +83,20 @@ export default function Home() {
               </p>
             </div>
           </div>
+          <VirtualizedPhoto>
+            {({ index }) => {
+              const modulo = index % images.length;
+              const imageIndex = modulo < 0 ? images.length + modulo : modulo;
+              return (
+                <Image
+                  draggable={false}
+                  src={images[imageIndex]}
+                  style={{ width: "100%" }}
+                  alt={"photo"}
+                />
+              );
+            }}
+          </VirtualizedPhoto>
         </div>
       </div>
     </div>
