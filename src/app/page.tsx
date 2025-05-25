@@ -2,11 +2,7 @@
 import Image from "next/image";
 import { VirtualizedPhoto } from "./components/carousel/virtualized-photo";
 
-const images = [
-  "https://unsplash.com/photos/1527pjeb6jg/download?force=true&w=640",
-  "https://unsplash.com/photos/9wg5jCEPBsw/download?force=true&w=640",
-  "https://unsplash.com/photos/9wg5jCEPBsw/download?force=true&w=640",
-];
+const images = ["/stitch.jpg", "/stitch2.jpg", "/stitch3.jpg"];
 console.log(images.length);
 
 export default function Home() {
@@ -91,8 +87,10 @@ export default function Home() {
                 <Image
                   draggable={false}
                   src={images[imageIndex]}
-                  style={{ width: "100%" }}
+                  style={{ width: "100%", height: "100%" }}
                   alt={"photo"}
+                  width={10}
+                  height={10}
                 />
               );
             }}
